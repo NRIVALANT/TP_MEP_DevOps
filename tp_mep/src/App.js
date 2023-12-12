@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./Header";
+import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div>
+      <Header />
+      <main>
+        <h1>Mon site web</h1>
         <p>
-          Bonjour, je suis un composant React !
+          Ce site web est un exemple de header en React avec un menu déroulant.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </main>
     </div>
   );
-}
+};
 
 export default App;
