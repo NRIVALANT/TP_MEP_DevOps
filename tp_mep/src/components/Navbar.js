@@ -1,53 +1,37 @@
-import React from "react";
-import { useState } from "react";
-import "./Navbar.css";
+import * as React from 'react';
+import BottomNavigation from '@mui/material/BottomNavigation';
+import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import FolderIcon from '@mui/icons-material/Folder';
+import HomeIcon from '@mui/icons-material/Home';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ContactsIcon from '@mui/icons-material/Contacts';
+import './Navbar.css';
 
-const Navbar = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+export default function Navbar() {
+  const [value, setValue] = React.useState('recents');
 
-  const handleDropdownToggle = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const handleChange = (event, newValue) =>   {
+    setValue(newValue);
   };
 
   return (
-    <header>
-      <nav>
-        <div className="logo">
-          <img src="/images/logo.png" alt="Logo" />
-        </div>
-        <ul>
-          <li>
-            <a href="/">Accueil</a>
-          </li>
-          <li>
-            <a href="/produits">Produits</a>
-          </li>
-          <li>
-            <a
-              href="#"
-              onClick={handleDropdownToggle}
-              className={isDropdownOpen ? "active" : ""}
-            >
-              À propos
-            </a>
-            <ul
-              className={isDropdownOpen ? "show" : ""}
-              style={{
-                display: isDropdownOpen ? "block" : "none",
-              }}
-            >
-              <li><a href="/a-propos">Qui sommes-nous ?</a></li>
-              <li><a href="/nos-valeurs">Nos valeurs</a></li>
-              <li><a href="/nos-engagements">Nos engagements</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="/contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <BottomNavigation className='bottom-navigation' value={value} onChange={handleChange}>
+      <BottomNavigationAction className='bottom-navigation-action'
+        label="Home"
+        value="Home "
+        icon={<HomeIcon />}
+      />
+      <BottomNavigationAction
+        label="Favorites"
+        value="favorites"
+        icon={<FavoriteIcon />}
+      />
+      <BottomNavigationAction
+        label="Contact"
+        value="Contact"
+        icon={<ContactsIcon />}
+      />
+      <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
+    </BottomNavigation>
   );
-};
-
-export default Navbar;
+}
