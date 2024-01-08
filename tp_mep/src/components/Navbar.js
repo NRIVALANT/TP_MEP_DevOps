@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import "./Header.css";
+import "./Navbar.css";
 
-const Header = () => {
+const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleDropdownToggle = () => {
@@ -50,4 +50,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;

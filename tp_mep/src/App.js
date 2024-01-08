@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "./Header";
+import Navbar from "./components/Navbar";
 import "./App.css";
 
 const App = () => {
   return (
     <div>
-      <Header />
+      <Navbar />
       <main>
         <h1>Mon site web</h1>
         <p>
